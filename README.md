@@ -22,7 +22,7 @@ The TM assignments data is made available on the portal in XML format on a daily
 <ul>
 <li><b><a href="http://patents.reedtech.com/tmassign.php">Reed Tech IP Services, "USPTO Data Portal: Trademark Daily XML Files - Assignments,"</a></b></li>
 </ul>
-The TM assignnents back file is made available on the portal in XML format:
+The TM assignments back file is made available on the portal in XML format:
 <ul>
 <li><b><a href="http://patents.reedtech.com/tmassign.php#1980-2017">Reed Tech IP Services, "USPTO Data Portal: Trademark  XML Files - Assignments: 1980-2017"</a></b></li>
 </ul>
