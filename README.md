@@ -1,4 +1,3 @@
-
 ## TrademarkPublicData
 Utilities which support the processing of XML based USPTO trademark bulk download files
 
@@ -6,7 +5,7 @@ Utilities which support the processing of XML based USPTO trademark bulk downloa
 
 The USPTO makes trademark data available to the public on both its own Bulk Data Download System Site as well as the external Reed Tech USPTO data portal.
 The TM applications data is made available in XML format on a daily as well as annual basis. 
-The collection of ZIP files on the Reed Tech site contains both the  daily  XML files(front files) as well as the annual XML files(back file). The  XML files are created and uploaded daily and contain pending and registered trademark text data including word mark, serial number, registration number, filing date, registration date, goods and services, classification number(s), status code(s), design search code(s), and pseudo mark(s).  
+The collection of ZIP files on the Reed Tech site contains both the  daily  XML files(front files) as well as the annual XML files(back file). The  XML files are created and uploaded daily and contain pending and registered trademark text data including word mark, serial number, registration number, filing date, registration date, goods and services, classification number(s), status code(s) and design search code(s).  
 <ul>
 <li><b><a href="http://patents.reedtech.com/tmappxml.php">Reed Tech IP Services, "USPTO Data Portal: Trademark Daily + Annual  XML Files - Applications"</a></b></li>
 </ul>
@@ -18,38 +17,27 @@ The annual XML application files are available on both  the USPTO Bulk Data Stor
 <ul>
 <li><b><a href="https://patents.reedtech.com/tmappxml.php#1884-2017">Reed Tech Annual Trademark XML (Back files)</a></b></li>
 </ul>
-The TM assignments data is made available on the portal in XML format on a daily basis:
-<ul>
-<li><b><a href="http://patents.reedtech.com/tmassign.php">Reed Tech IP Services, "USPTO Data Portal: Trademark Daily XML Files - Assignments,"</a></b></li>
-</ul>
-The TM assignments back file is made available on the portal in XML format:
-<ul>
-<li><b><a href="http://patents.reedtech.com/tmassign.php#1980-2017">Reed Tech IP Services, "USPTO Data Portal: Trademark  XML Files - Assignments: 1980-2017"</a></b></li>
-</ul>
-The collection of ZIP files consists of daily trademark assignments (front files) of text derived from trademark assignment recordations at the USPTO. The TM assignment annual XML data (backfiles) are available for download from either the  the USPTO Bulk Data Storage System (BDDS) or Reed Tech site and contain data created annually containing an aggregation of all trademark assignments from August 1980 to the 2017:
-<ul>
-<li><b><a href="https://bulkdata.uspto.gov/data3/trademark/dailyxml/assignments/">USPTO Bulk Data Storage System (BDSS) Trademark Annual XML Assignments</a></b></li>
-</ul>
- 
-The TM annual bulk download files are available for download from either the USPTO Bulk Data Site or the Reed Tech site and consist of a series of ZIP files containing all trademark data from April 7, 1884  through the last day of the previous year. Once unzipped, the concatenated XML files range in size from roughly 400 MB to 3 GB and contain upwards of 80,000 trademark records per file. The files are too large to be opened with most standard text editors or IDEs for viewing.  Some commercial XML tools such as Oxygen XML Editor support viewing files of this size but these tools require a license.
-There are currently 59 TM annual ZIP files in the series containing all trademark data through the end of 2017. The annual TM files can be distinguished from the daily TM XML ZIP files available on the site by the file names. Annual files are named using the last day of the year following by the series number (1-59):
+
+
+The TM annual bulk download application  files are available for download from either the USPTO Bulk Data Site or the Reed Tech site and consist of a series of ZIP files containing all trademark data from April 7, 1884  through the last day of the previous year. Once unzipped, the concatenated XML files range in size from roughly 400 MB to 3 GB and contain upwards of 80,000 trademark records per file. The files are too large to be opened with most standard text editors or IDEs for viewing.  Some commercial XML tools such as Oxygen XML Editor support viewing files of this size but these tools require a license.
+There are currently 55 TM annual application ZIP files in the series containing all trademark data through the end of 2018. The annual TM files can be distinguished from the daily TM XML ZIP files available on the site by the file names. Annual files are named using the last day of the year following by the series number (1-59):
 <br>
 <br>i.e.
 <br>
-apc171231-01.zip
-<br>…
-<br>apc171231-59.zip
+apc18840407-20181231-01.zip
+<br>
+<br>apc18840407-20181231-55.zip
 <br>
 <br>
-Daily XML files are named using the date with no series number:
+Daily XML application files are named using the date with no series number:
 <br>
 i.e.
-<br>apc180101.zip
+<br>apc190101.zip
 
 <br>
-The trademark splitter is a Python based utility which separates out the trademarks contained within each bulk download file and then builds a corpus using a directory structure based on name and date of the ZIP file. The utility currently supports both the TM daily bulk download files(front files)  as well as the TM annual bulk download files (back files). The Python TM splitter tool uses a buffered reader to read and process the large XML input file in chunks so it won’t run out of memory.
+The trademark splitter is a Python based utility which separates out the trademarks contained within each bulk download application file and then builds a corpus using a directory structure based on name and date of the ZIP file. The utility currently supports both the TM daily bulk download files(front files)  as well as the TM annual bulk download files (back files). The Python TM splitter tool uses a buffered reader to read and process the large XML input file in chunks so it won’t run out of memory.
 <br>
-For each individual trademark extracted from the bulk XML file, the TM splitter creates  2 files:
+For each individual trademark extracted from the bulk application XML file, the TM splitter creates  2 files:
 <ul>
 <li><b>complete trademark containing all fields in USPTO standard trademark XML format</b></li>
 <li><b>file containing a subset of fields in Solr ready XML format</b></li>
@@ -71,29 +59,29 @@ C:\TrademarkPublicData\TMProcessing>python -V
 Python 3.6.0
 
 ## Data download
-The tool can be tested with the following trademark annual XML input file:
+The tool can be tested with the following trademark annual application XML input file:
 <br>
 <br>
-<b><a href="https://bulkdata.uspto.gov/data/trademark/dailyxml/applications/apc171231-56.zip">apc171231-56.zip</a></b>
+<b><a href="https://bulkdata.uspto.gov/data/trademark/dailyxml/applications/apc18840407-181231-55.zip">apc18840407-apc181231-55.zip</a></b>
 <br>
 <br>
 Unzip the file to a location with plenty of storage and confirm that there is an XML file of the same name:
 <br>
-i.e. e:\TMData\Applications_XML\apc171231-56.zip
+i.e. e:\TMData\Applications_XML\apc18840407-181231-55.zip
 
 <br>
-The annual XML ZIP files are named using the last day of the previous year and the sequence number. For example, the file “acp171231-56.zip” is one of 59 files that together represent a snapshot of all USPTO registered trademarks as of Dec. 31, 2017. This sample file contains 82,652 trademark records. It is 106 MB zipped and 1.72 GB unzipped.
+The annual XML ZIP files are named using the last day of the previous year and the sequence number. For example, the file “acp18840407-181231-55.zip” is one of 55 files that together represent a snapshot of all USPTO registered trademarks as of Dec. 31, 2017. This sample file contains 82,652 trademark records. It is 106 MB zipped and 1.72 GB unzipped.
 
 <br>
 The tool can be tested with the following trademark daily XML input file:
 <br>
-<b><a href="https://bulkdata.uspto.gov/data/trademark/dailyxml/applications/apc180329.zip">apc180329.zip</a></b>
+<b><a href="https://bulkdata.uspto.gov/data/trademark/dailyxml/applications/apc190329.zip">apc190329.zip</a></b>
 <br>
 Unzip the file and confirm that there is an XML file with the same name:
 <br>
-i.e. apc180329.xml
+i.e. apc190329.xml
 <br>
-Daily XML files are named using the date with no series number and only contain trademark records for a single day. This file contains 28575 records for all trademark transactions for March 29th, 2017.
+Daily XML files are named using the date with no series number and only contain trademark records for a single day. This file contains records for all trademark transactions for March 29th, 2019.
 
 <br>
 The complete set of annual XML files form a snapshot of the USPTO public trademark data as of the last day of the previous year. In order to build an up to date trademark corpus representing all publicly available trademark data, the splitter must first process all annual XML files.  The splitter can then process all daily XML files up to the previous day which includes all changes since the snapshot was published on the last day of the previous year.
@@ -114,20 +102,20 @@ $ cd C:\TrademarkPublicData\TMProcessing
 Run the utility by providing the name of the input XML file and location of output directory as command line arguments:
 
 <br>
-$python tm_splitter.py -i e:\TMData\Applications_XML\apc161231-56.xml -d c:\tm_corpus
+$python tm_splitter.py -i e:\TMData\Applications_XML\apc18840407-181231-55.xml -d c:\tm_corpus
 
 <br>
 The utility will echo status messages to standard output as it builds a trademark corpus under the directory specified on the command line using the input file:
 <br>
 Number of arguments:  5 arguments
 <br>
-Argument List: ['D:\\TrademarkPublicData\\TMProcessing\\tm_splitter.py', '-i', 'e:\\TMData\\Applications_XML\\apc161231-56-87275954.xml', '-d', 'c:\\tm_corpus']
+Argument List: ['D:\\TrademarkPublicData\\TMProcessing\\tm_splitter.py', '-i', 'e:\\TMData\\Applications_XML\\apc18840407-181231-56-87275954.xml', '-d', 'c:\\tm_corpus']
 <br>
-Argv:  ['-i', 'e:\\TMData\\Applications_XML\\apc161231-56-87275954.xml', '-d', 'c:\\tm_corpus']
+Argv:  ['-i', 'e:\\TMData\\Applications_XML\\apc18840407-181231-55-87275954.xml', '-d', 'c:\\tm_corpus']
 <br>
 reading input file:
 <br>
-e:\TMData\Applications_XML\apc161231-56-87275954.xml
+e:\TMData\Applications_XML\apc18840407-apc181231-55-87275954.xml
 <br>
 using record separator:
 </case-file>
@@ -149,14 +137,14 @@ tm_file:  87275954.xml
 tm_file_solr: solr_87275954.xml
 
 <br>
-c:\\tm_corpus/apc161231-56-87275954/87275954.xml'
+c:\\tm_corpus/apc18840407-181231-55-87275954/87275954.xml'
 <br>
 tm file creation complete
 
 <br>
 creating Solr ready XML file:
 <br>
-c:\\tm_corpus/apc161231-56-87275954/solr/solr_87275954.xml'
+c:\\tm_corpus/apc18840407-181231-55-87275954/solr/solr_87275954.xml'
 
 <br>
 tm Solr file creation complete
@@ -187,8 +175,8 @@ Number of tm classifications extracted:
 <br>The utility will create a corpus structure using the input file name for directory name and trademark serial number for file name:
 <br>i.e. 
 <ul>
-<li><b>c:\tm_corpus\apc161231-56-87275954\87275954.xml</b></li>
-<li><b>c:\tm_corpus\apc161231-56-87275954\solr\solr_87275954.xml</b></li>
+<li><b>c:\tm_corpus\apc18840407-181231-55-87275954\87275954.xml</b></li>
+<li><b>c:\tm_corpus\apc18840407-171231-55-87275954\solr\solr_87275954.xml</b></li>
 </ul>
 
 ## Setting up PyDev with Eclipse
@@ -268,11 +256,11 @@ This agreement or any reference to specific commercial products, processes, or s
   <br />
   To the extent possible under law,
   <a rel="dct:publisher"
-     href="https://github.com/USPTO/PatentPublicData">https://github.com/USPTO/PatentPublicData</a>
+     href="https://github.com/USPTO/TrademarkPublicData">https://github.com/USPTO/TrademarkPublicData</a>
   has waived all copyright and related or neighboring rights to
-  <span property="dct:title">Patent Public Data</span>.
+  <span property="dct:title">Trademark Public Data</span>.
 This work is published from:
 <span property="vcard:Country" datatype="dct:ISO3166"
-      content="US" about="https://github.com/USPTO/PatentPublicData">
+      content="US" about="https://github.com/USPTO/TrademarkPublicData">
   United States</span>.
 </p>
